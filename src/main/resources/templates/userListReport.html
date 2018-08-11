@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<body>
+<table border="1" >
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>USERNAME</td>
+        <td>FIRST NAME</td>
+        <td>LAST NAME</td>
+    </tr>
+    </thead>
+    <tbody>
+        <tr th:each="user, iterStat : ${userList}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.surname}"></td>
+            <td th:text="${user.age}"></td>
+        </tr>
+    </tbody>
+</table>
+
+<a th:value="xls" th:name="type" href="/report/?type=xls">Download Excel</a>
+
+</body>
+</body>
+</html>
