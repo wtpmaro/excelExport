@@ -2,6 +2,7 @@ package com.example.excelandpdf.controller;
 
 import com.example.excelandpdf.model.Invoice;
 import com.example.excelandpdf.view.ExcelUserListReportView;
+import com.example.excelandpdf.view.PdfUserListReportView;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,8 +31,9 @@ public class ReportController {
 
         if(typeReport != null && typeReport.equals("xls")){
             return new ModelAndView(new ExcelUserListReportView(), "userList", list);
+        } else if(typeReport != null && typeReport.equals("pdf")) {
+            return new ModelAndView(new PdfUserListReportView(), "userList", list);
         }
-
         return new ModelAndView("userListReport", "userList", list);
     }
 }
